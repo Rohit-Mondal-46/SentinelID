@@ -65,7 +65,6 @@ export default function Mint() {
       alert("Please solve the CAPTCHA first.")
       return
     }
-    // 🚀 Call mint function here
     console.log("Minting NFT...")
   }
 
@@ -88,22 +87,30 @@ export default function Mint() {
               ✅ Proceed to Mint
             </button>
           ) : (
-            <div className="mt-4 space-y-4 text-center">
-              <div className="text-red-400 font-medium">
-                ⚠️ High risk detected. Solve CAPTCHA to proceed.
+            <div className="mt-6 p-4 bg-gray-800 rounded-xl border border-red-500 shadow-inner space-y-4">
+              <div className="text-center text-red-400 font-semibold text-base flex items-center justify-center gap-2">
+                <span>⚠️ High Risk Detected</span>
               </div>
-              <ReCAPTCHA
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                ref={captchaRef}
-                onChange={handleCaptchaChange}
-              />
+              <p className="text-sm text-gray-300 text-center">
+                To continue minting, please complete the CAPTCHA verification below.
+              </p>
+
+              <div className="flex justify-center">
+                <ReCAPTCHA
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  ref={captchaRef}
+                  onChange={handleCaptchaChange}
+                  theme="dark"
+                />
+              </div>
+
               <button
                 onClick={handleMint}
                 disabled={!captchaVerified}
-                className={`w-full py-3 rounded-full font-semibold shadow-lg transition duration-300 ${
+                className={`w-full mt-4 py-3 rounded-full font-semibold shadow-lg transition duration-300 ${
                   captchaVerified
                     ? 'bg-green-500 hover:bg-green-600 text-white'
-                    : 'bg-gray-600 text-gray-300 cursor-not-allowed'
+                    : 'bg-gray-700 text-gray-400 cursor-not-allowed'
                 }`}
               >
                 ✅ Verify & Mint
