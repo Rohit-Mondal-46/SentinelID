@@ -1,0 +1,23 @@
+{
+  "name": "sentinelid-sdk",
+  "version": "1.0.0",
+  "description": "AI-powered behavioral SDK for SentinelID",
+  "main": "dist/sentinelid-sdk.umd.js",
+  "module": "dist/sentinelid-sdk.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  },
+  "keywords": ["sdk", "react", "sentinelid", "behavior", "zk-captcha"],
+  "author": "Liza",
+  "license": "MIT"
+}
