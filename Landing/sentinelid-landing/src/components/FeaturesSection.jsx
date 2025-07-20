@@ -2,7 +2,7 @@ import { Brain, Zap, Lock, BarChart3 } from 'lucide-react'
 
 export default function FeaturesSection() {
   return (
-    <section className="py-24 relative">
+    <section id="features-section" className="py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-cyan-900/10"></div>
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">

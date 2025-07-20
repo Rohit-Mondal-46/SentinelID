@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { 
-  Download, 
   Code, 
   Terminal, 
   CheckCircle, 
   Copy, 
-  ExternalLink, 
-  ArrowLeft,
+  ExternalLink,
   Package,
   Settings,
   Zap,
@@ -15,6 +13,7 @@ import {
   BookOpen,
   Github
 } from 'lucide-react'
+import Navbar from '../components/Navbar'
 
 export default function DownloadPage() {
   const navigate = useNavigate()
@@ -195,36 +194,21 @@ sentinel.onTransactionAttempt((transaction) => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Header */}
-      <div className="border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => navigate('/')}
-              className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Back to Home
-            </button>
-            <div className="h-6 w-px bg-gray-700"></div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">SentinelID Integration Guide</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Navbar 
+        showBackButton={true}
+        onBackClick={() => navigate(-1)}
+        onIntegrationClick={() => navigate('/integrate')}
+        onDocsClick={() => navigate('/docs')}
+      />
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            Integrate AI-Powered Security in Minutes
+            Download & Integrate SentinelID
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Follow our step-by-step guide to add behavioral biometrics and threat detection to your Web3 application.
+            Get started with our SDK and add powerful security features to your Web3 application.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="flex items-center gap-2 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2">
@@ -234,10 +218,6 @@ sentinel.onTransactionAttempt((transaction) => {
             <div className="flex items-center gap-2 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2">
               <Github className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-gray-300">Open source SDK</span>
-            </div>
-            <div className="flex items-center gap-2 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2">
-              <Zap className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm text-gray-300">Real-time protection</span>
             </div>
           </div>
         </div>

@@ -1,17 +1,32 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { 
-  BookOpen, Code, Shield, Zap, Settings, Key, Globe, 
-  ChevronRight, Copy, CheckCircle, Search, Menu, X, 
-  ExternalLink, AlertTriangle, Info, CheckSquare 
-} from 'lucide-react';
-import Navbar from './Navbar';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  BookOpen,
+  Code,
+  Shield,
+  Zap,
+  Settings,
+  Key,
+  Globe,
+  ChevronRight,
+  Copy,
+  CheckCircle,
+  Search,
+  Menu,
+  X,
+  ExternalLink,
+  AlertTriangle,
+  Info,
+  CheckSquare,
+} from "lucide-react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function DocsPage() {
-  const [activeSection, setActiveSection] = useState('getting-started');
+  const [activeSection, setActiveSection] = useState("getting-started");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [copiedCode, setCopiedCode] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   const copyToClipboard = (text, id) => {
@@ -22,88 +37,93 @@ export default function DocsPage() {
 
   const sections = [
     {
-      id: 'getting-started',
-      title: 'Getting Started',
+      id: "getting-started",
+      title: "Getting Started",
       icon: BookOpen,
       subsections: [
-        { id: 'introduction', title: 'Introduction' },
-        { id: 'installation', title: 'Installation' },
-        { id: 'quick-start', title: 'Quick Start' }
-      ]
+        { id: "introduction", title: "Introduction" },
+        { id: "installation", title: "Installation" },
+        { id: "quick-start", title: "Quick Start" },
+      ],
     },
     {
-      id: 'authentication',
-      title: 'Authentication',
+      id: "authentication",
+      title: "Authentication",
       icon: Key,
       subsections: [
-        { id: 'api-keys', title: 'API Keys' },
-        { id: 'environments', title: 'Environments' },
-        { id: 'rate-limits', title: 'Rate Limits' }
-      ]
+        { id: "api-keys", title: "API Keys" },
+        { id: "environments", title: "Environments" },
+        { id: "rate-limits", title: "Rate Limits" },
+      ],
     },
     {
-      id: 'core-features',
-      title: 'Core Features',
+      id: "core-features",
+      title: "Core Features",
       icon: Shield,
       subsections: [
-        { id: 'behavioral-analysis', title: 'Behavioral Analysis' },
-        { id: 'threat-detection', title: 'Threat Detection' },
-        { id: 'risk-scoring', title: 'Risk Scoring' },
-        { id: 'challenges', title: 'ZK Challenges' }
-      ]
+        { id: "behavioral-analysis", title: "Behavioral Analysis" },
+        { id: "threat-detection", title: "Threat Detection" },
+        { id: "risk-scoring", title: "Risk Scoring" },
+        { id: "challenges", title: "ZK Challenges" },
+      ],
     },
     {
-      id: 'api-reference',
-      title: 'API Reference',
+      id: "api-reference",
+      title: "API Reference",
       icon: Code,
       subsections: [
-        { id: 'endpoints', title: 'Endpoints' },
-        { id: 'webhooks', title: 'Webhooks' },
-        { id: 'errors', title: 'Error Handling' }
-      ]
+        { id: "endpoints", title: "Endpoints" },
+        { id: "webhooks", title: "Webhooks" },
+        { id: "errors", title: "Error Handling" },
+      ],
     },
     {
-      id: 'integrations',
-      title: 'Integrations',
+      id: "integrations",
+      title: "Integrations",
       icon: Globe,
       subsections: [
-        { id: 'react', title: 'React' },
-        { id: 'vue', title: 'Vue.js' },
-        { id: 'web3', title: 'Web3.js' },
-        { id: 'ethers', title: 'Ethers.js' }
-      ]
+        { id: "react", title: "React" },
+        { id: "vue", title: "Vue.js" },
+        { id: "web3", title: "Web3.js" },
+        { id: "ethers", title: "Ethers.js" },
+      ],
     },
     {
-      id: 'advanced',
-      title: 'Advanced',
+      id: "advanced",
+      title: "Advanced",
       icon: Settings,
       subsections: [
-        { id: 'custom-models', title: 'Custom Models' },
-        { id: 'analytics', title: 'Analytics' },
-        { id: 'compliance', title: 'Compliance' }
-      ]
-    }
+        { id: "custom-models", title: "Custom Models" },
+        { id: "analytics", title: "Analytics" },
+        { id: "compliance", title: "Compliance" },
+      ],
+    },
   ];
 
   const renderContent = () => {
     switch (activeSection) {
-      case 'getting-started':
+      case "getting-started":
         return (
           <div className="space-y-12">
             <div id="introduction">
-              <h2 className="text-3xl font-bold text-white mb-6">Introduction</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Introduction
+              </h2>
               <div className="prose prose-invert max-w-none">
                 <p className="text-xl text-gray-300 mb-6">
-                  SentinelID is an AI-powered Web3 security platform that protects decentralized applications 
-                  from bots, wallet drainers, and social engineering attacks using behavioral biometrics and 
-                  zero-trust challenges.
+                  SentinelID is an AI-powered Web3 security platform that
+                  protects decentralized applications from bots, wallet
+                  drainers, and social engineering attacks using behavioral
+                  biometrics and zero-trust challenges.
                 </p>
-                
+
                 <div className="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 border border-cyan-500/30 rounded-xl p-6 mb-8">
                   <div className="flex items-start gap-4">
                     <Info className="w-6 h-6 text-cyan-400 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-2">Key Benefits</h4>
+                      <h4 className="text-lg font-semibold text-white mb-2">
+                        Key Benefits
+                      </h4>
                       <ul className="space-y-2 text-gray-300">
                         <li className="flex items-center gap-2">
                           <CheckSquare className="w-4 h-4 text-green-400" />
@@ -129,44 +149,66 @@ export default function DocsPage() {
             </div>
 
             <div id="installation">
-              <h2 className="text-3xl font-bold text-white mb-6">Installation</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Installation
+              </h2>
               <p className="text-gray-300 mb-6">
                 Install the SentinelID SDK using your preferred package manager:
               </p>
-              
+
               <div className="space-y-4">
                 <div className="relative">
                   <pre className="bg-gray-900 border border-gray-700 rounded-lg p-4 text-cyan-400 font-mono text-sm overflow-x-auto">
                     npm install @sentinelid/sdk
                   </pre>
                   <button
-                    onClick={() => copyToClipboard('npm install @sentinelid/sdk', 'npm-install')}
+                    onClick={() =>
+                      copyToClipboard(
+                        "npm install @sentinelid/sdk",
+                        "npm-install"
+                      )
+                    }
                     className="absolute top-2 right-2 p-2 text-gray-400 hover:text-cyan-400 transition-colors"
                   >
-                    {copiedCode === 'npm-install' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    {copiedCode === "npm-install" ? (
+                      <CheckCircle className="w-4 h-4" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
                   </button>
                 </div>
-                
+
                 <div className="relative">
                   <pre className="bg-gray-900 border border-gray-700 rounded-lg p-4 text-purple-400 font-mono text-sm overflow-x-auto">
                     yarn add @sentinelid/sdk
                   </pre>
                   <button
-                    onClick={() => copyToClipboard('yarn add @sentinelid/sdk', 'yarn-install')}
+                    onClick={() =>
+                      copyToClipboard(
+                        "yarn add @sentinelid/sdk",
+                        "yarn-install"
+                      )
+                    }
                     className="absolute top-2 right-2 p-2 text-gray-400 hover:text-purple-400 transition-colors"
                   >
-                    {copiedCode === 'yarn-install' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    {copiedCode === "yarn-install" ? (
+                      <CheckCircle className="w-4 h-4" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
                   </button>
                 </div>
               </div>
             </div>
 
             <div id="quick-start">
-              <h2 className="text-3xl font-bold text-white mb-6">Quick Start</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Quick Start
+              </h2>
               <p className="text-gray-300 mb-6">
                 Get up and running with SentinelID in just a few lines of code:
               </p>
-              
+
               <div className="relative mb-8">
                 <pre className="bg-gray-900 border border-gray-700 rounded-lg p-6 text-sm overflow-x-auto">
                   <code className="text-gray-300">{`import { SentinelID } from '@sentinelid/sdk';
@@ -206,7 +248,9 @@ const analyzeConnection = async (walletAddress) => {
 };`}</code>
                 </pre>
                 <button
-                  onClick={() => copyToClipboard(`import { SentinelID } from '@sentinelid/sdk';
+                  onClick={() =>
+                    copyToClipboard(
+                      `import { SentinelID } from '@sentinelid/sdk';
 
 // Initialize SentinelID
 const sentinel = new SentinelID({
@@ -240,10 +284,17 @@ const analyzeConnection = async (walletAddress) => {
     console.error('SentinelID analysis failed:', error);
     return { error: true };
   }
-};`, 'quick-start')}
+};`,
+                      "quick-start"
+                    )
+                  }
                   className="absolute top-2 right-2 p-2 text-gray-400 hover:text-cyan-400 transition-colors"
                 >
-                  {copiedCode === 'quick-start' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                  {copiedCode === "quick-start" ? (
+                    <CheckCircle className="w-4 h-4" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
@@ -255,16 +306,23 @@ const analyzeConnection = async (walletAddress) => {
         return (
           <div className="text-center py-20">
             <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-white mb-2">Section Coming Soon</h2>
-            <p className="text-gray-400">This documentation section is currently being written.</p>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Section Coming Soon
+            </h2>
+            <p className="text-gray-400">
+              This documentation section is currently being written.
+            </p>
           </div>
         );
     }
   };
 
-  const filteredSections = sections.filter(section =>
-    section.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    section.subsections.some(sub => sub.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredSections = sections.filter(
+    (section) =>
+      section.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      section.subsections.some((sub) =>
+        sub.title.toLowerCase().includes(searchQuery.toLowerCase())
+      )
   );
 
   return (
@@ -273,9 +331,11 @@ const analyzeConnection = async (walletAddress) => {
 
       <div className="pt-20 flex">
         {/* Sidebar */}
-        <div className={`fixed lg:static inset-y-0 left-0 z-40 w-80 bg-gray-800/50 backdrop-blur-xl border-r border-gray-700 transform transition-transform duration-300 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        }`}>
+        <div
+          className={`fixed lg:static inset-y-0 left-0 z-40 w-80 bg-gray-800/50 backdrop-blur-xl border-r border-gray-700 transform transition-transform duration-300 ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+          }`}
+        >
           <div className="p-6 border-b border-gray-700">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-white">Documentation</h2>
@@ -286,7 +346,7 @@ const analyzeConnection = async (walletAddress) => {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input
@@ -298,7 +358,7 @@ const analyzeConnection = async (walletAddress) => {
               />
             </div>
           </div>
-          
+
           <div className="p-6 overflow-y-auto h-full">
             <nav className="space-y-2">
               {filteredSections.map((section) => (
@@ -307,17 +367,19 @@ const analyzeConnection = async (walletAddress) => {
                     onClick={() => setActiveSection(section.id)}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
                       activeSection === section.id
-                        ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-400'
-                        : 'text-gray-300 hover:bg-gray-700/50 hover:text-white'
+                        ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-400"
+                        : "text-gray-300 hover:bg-gray-700/50 hover:text-white"
                     }`}
                   >
                     <section.icon className="w-5 h-5" />
                     <span className="font-medium">{section.title}</span>
-                    <ChevronRight className={`w-4 h-4 ml-auto transition-transform ${
-                      activeSection === section.id ? 'rotate-90' : ''
-                    }`} />
+                    <ChevronRight
+                      className={`w-4 h-4 ml-auto transition-transform ${
+                        activeSection === section.id ? "rotate-90" : ""
+                      }`}
+                    />
                   </button>
-                  
+
                   {activeSection === section.id && (
                     <div className="ml-8 mt-2 space-y-1">
                       {section.subsections.map((subsection) => (
@@ -359,12 +421,15 @@ const analyzeConnection = async (walletAddress) => {
 
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-              <button onClick={() => navigate('/')} className="hover:text-cyan-400">
+              <button
+                onClick={() => navigate("/")}
+                className="hover:text-cyan-400"
+              >
                 Home
               </button>
               <ChevronRight className="w-4 h-4" />
               <span className="text-cyan-400">
-                {sections.find(s => s.id === activeSection)?.title}
+                {sections.find((s) => s.id === activeSection)?.title}
               </span>
             </div>
 
@@ -393,6 +458,7 @@ const analyzeConnection = async (walletAddress) => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
