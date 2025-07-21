@@ -31,7 +31,7 @@ export default function Navbar({ showBackButton = false }) {
     { name: 'Home', onClick: () => navigate('/') },
     { name: 'Features', onClick: scrollToFeatures },
     { name: 'Docs', icon: FileText, onClick: () => navigate('/docs') },
-    { name: 'GitHub', icon: Github, href: 'https://github.com/sentinelid' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/Rohit-Mondal-46/SentinelID/' },
   ];
 
   return (
